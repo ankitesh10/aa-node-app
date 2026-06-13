@@ -1,51 +1,106 @@
-Ankitesh Arora, UI Engineer
+Ankitesh Arora - Primary Product Engineer, Frontend Specialist, AI-First Engineer
+
+Preferred professional positioning:
+Ankitesh Arora positions himself as a Primary Product Engineer: an engineer who can own product outcomes end to end, translate ambiguous product problems into shipped software, and make strong frontend, UX, performance, and technical tradeoff decisions. His primary professional depth is in frontend engineering, especially React, TypeScript, JavaScript, web performance, developer tooling, and product-facing UI systems. He also has practical backend and database knowledge with Node.js, Express, and PostgreSQL, which helps him collaborate across the stack and build full product flows. Ankitesh is an AI-first engineer who actively uses AI tools and AI product patterns to accelerate engineering work, improve user workflows, and build AI-enabled product experiences. He has knowledge of AI SDKs, retrieval-augmented generation (RAG), RAG-based agents, and evaluation workflows for AI applications.
+
+Short recruiter summary:
+Ankitesh Arora is a product-minded frontend engineer with 7+ years of experience building high-performance React applications and customer-facing product experiences at companies including Postman, Jio Haptik, and Thrillophilia. He is strongest in frontend technologies such as React, TypeScript, JavaScript, Vite, React 18, Playwright, Storybook, Redux, React Query, Next.js, Remix, HTML, and CSS. He also understands Node.js, Express, and PostgreSQL, making him effective in product engineering roles that require frontend ownership with enough backend awareness to build, debug, and ship end-to-end workflows. He has led migrations, improved build and runtime performance, implemented checkout and payment flows, contributed to AI-based product features, and improved developer productivity. He is familiar with AI SDKs, building RAG-based agents, retrieval pipelines, and writing evals to measure AI application quality.
+
+Best-fit roles:
+- Primary Product Engineer
+- Product Engineer
+- Senior Frontend Engineer
+- Frontend-leaning Full Stack Engineer
+- React Engineer
+- AI Product Engineer
+- AI-First Frontend Engineer
+- UI Engineer
+
+Core strengths:
+- Product engineering: owns customer-facing features, improves workflows, reduces friction, and ships measurable product improvements.
+- Frontend engineering: deep experience with React, TypeScript, JavaScript, responsive UI, component architecture, state management, frontend performance, and modern build systems.
+- AI-first engineering: comfortable using AI during the engineering process and building AI-enabled product flows, including itinerary generation, workflow automation, AI SDK usage, RAG-based agents, and eval-driven quality checks.
+- Performance and tooling: strong background in Vite, React 18 migrations, build-time reduction, render performance, hot reload performance, Playwright E2E testing, ESLint, Prettier, Storybook, and frontend developer experience.
+- End-to-end product awareness: primary expertise is frontend, with working knowledge of Node.js, Express, PostgreSQL, APIs, checkout flows, authentication flows, and data-driven UI behavior.
+- Collaboration and leadership: has led frontend migrations, mentored teams, run technical reviews, established frontend practices, and collaborated with product and design stakeholders.
+
+Technical keywords for retrieval:
+React, TypeScript, JavaScript, ES6, HTML5, CSS3, responsive design, Redux, React Query, Next.js, Remix, Vite, Webpack, React 18, Playwright, Jest, React Testing Library, Storybook, ESLint, Prettier, Node.js, Express, PostgreSQL, REST APIs, frontend performance, web performance, UI performance, developer experience, design systems, checkout, payments, AI SDK, AI SDKs, RAG, retrieval-augmented generation, RAG-based agent, RAG agent, AI evals, evals, evaluation workflows, AI itinerary builder, AI products, AI agents, product engineering, product-minded engineer, frontend specialist, full stack awareness, agile, code review, data structures, design patterns, UI/UX.
 
 Contact:
+Name: Ankitesh Arora
 Email: ankitesh4@gmail.com
 Phone: +91-7976855996
 GitHub: https://github.com/ankitesh10
 LinkedIn: https://linkedin.com/in/ankitesharora
 Website: https://ankitesharora.com
 
-Summary:
-Front-End Engineer with 7+ years building high-performance React applications at product companies like Postman and Jio Haptik. Specialises in performance optimisation, modern tooling (Vite, React 18, Playwright), and leading UI migrations that measurably improve user experience and developer productivity.
-
-Technologies:
-Frontend: React, TypeScript, JavaScript (ES6+), HTML5, CSS3, Responsive Design, Redux, React Query, Next.js, Remix.
-Tooling & Testing: Vite, Webpack, ESLint, Prettier, Jest, React Testing Library, Playwright, Storybook.
-Backend & DB: Node.js, Express, PostgreSQL.
-Practices: Agile, Design Patterns, Data Structures, UI/UX, Code Review.
-
-Experience:
-
+Current role:
 Thrillophilia | Senior Software Engineer | May 2025 - Present
-- Decoupled the React app from the Ruby on Rails framework and migrated the bundler to Vite. This reduced the build time of the frontend and backend by over 95%.
-- Implemented multi-payment support on the checkout page to improve the experience of thousands of monthly users.
-- Led the frontend of the AI-based itinerary builder, improving the time by over 60% to share the itinerary with end users.
-- Integrated ESLint and Prettier GitHub action to improve and maintain code quality.
-- Integrated Playwright for E2E testing for improving the reliability of the product, also covered the login flow under E2E test.
+- Works as a product-focused engineer with primary ownership in frontend engineering and customer-facing product experiences.
+- Decoupled the React app from the Ruby on Rails framework and migrated the bundler to Vite, reducing frontend and backend build time by over 95%.
+- Implemented multi-payment support on the checkout page, improving the payment experience for thousands of monthly users.
+- Led the frontend of an AI-based itinerary builder, improving the time required to share itineraries with end users by over 60%.
+- Has knowledge of AI SDKs, RAG-based agent patterns, retrieval workflows, and writing evals for AI application quality.
+- Integrated ESLint and Prettier GitHub Actions to improve and maintain code quality.
+- Integrated Playwright for end-to-end testing, including coverage for the login flow, improving product reliability.
+- Relevant recruiter keywords: React, Vite, Rails decoupling, checkout, payments, AI itinerary builder, AI SDK, RAG, RAG-based agent, evals, Playwright, frontend architecture, product engineering, developer productivity.
 
-Postman | Software Engineer - II | Oct 2024 - April 2025
-- Implemented UI/UX improvements to mock servers at Postman, reducing the number of steps it takes to create a Mock server, which improved the experience of nearly 56 million paid users.
-- Added support for loading collection diff asynchronously, improving efficiency for large orgs, mainly for Fortune 500 companies, which relied on these large diffs.
-- Improved the UI of the collection sidebar context menu, enhancing usability, responsiveness and introducing logical grouping of menu actions.
+Previous experience:
+Postman | Software Engineer II | Oct 2024 - Apr 2025
+- Implemented UI and UX improvements to Mock Servers at Postman, reducing the number of steps required to create a mock server and improving the experience for Postman's large user base.
+- Added support for loading collection diffs asynchronously, improving efficiency for large organizations and Fortune 500 customers working with large diffs.
+- Improved the collection sidebar context menu with better usability, responsiveness, and logical grouping of menu actions.
+- Relevant recruiter keywords: product UI, developer tools, enterprise users, async loading, large data UI, UX improvement, React, frontend engineering.
 
-Jio Haptik, Reliance Jio Platform | Software Engineer - III, Frontend | April 2024 - Oct 2024
-- Led the migration to Vite bundler and React 18, resulting in a 40% improvement in re-rendering performance and a 70% reduction in build time. It also resulted in better hot reload performance, increasing developer productivity by approximately 20%.
-- Held weekly review meetings with the team for technical discussion, feedback and improving as an engineer.
+Jio Haptik, Reliance Jio Platform | Software Engineer III, Frontend | Apr 2024 - Oct 2024
+- Led the migration to Vite and React 18, resulting in a 40% improvement in re-rendering performance and a 70% reduction in build time.
+- Improved hot reload performance, increasing developer productivity by approximately 20%.
+- Held weekly technical review meetings with the team for technical discussion, feedback, and engineering growth.
+- Relevant recruiter keywords: React 18, Vite, frontend migration, render performance, build performance, developer experience, technical leadership.
 
-Jio Haptik, Reliance Jio Platform | Software Engineer - II, Frontend | May 2021 - March 2024
-- Worked on various features, including WhatsApp carousel card templates, Instagram, Announcement Hub, and Ad Performance, ensuring seamless functionality and optimal user experience across desktop and mobile web platforms.
-- Enhanced the Inbox performance by over 30%, improving user engagement.
-- Worked on integration of Storybook and design system, improving the design consistency across the project and increasing developer productivity.
-- Identified and enhanced the user experience of Instagram's embedded signup process, increasing the signup success rate from 14% to 71%.
+Jio Haptik, Reliance Jio Platform | Software Engineer II, Frontend | May 2021 - Mar 2024
+- Built features across WhatsApp carousel card templates, Instagram, Announcement Hub, and Ad Performance, supporting seamless desktop and mobile web experiences.
+- Enhanced Inbox performance by over 30%, improving user engagement.
+- Worked on Storybook and design system integration, improving design consistency and developer productivity.
+- Improved Instagram embedded signup user experience, increasing signup success rate from 14% to 71%.
+- Relevant recruiter keywords: React, frontend features, product growth, mobile web, desktop web, Storybook, design system, performance optimization, signup conversion.
 
-Applaunch, Bengaluru | React JS - Team Lead and React Native Developer | Oct 2019 - March 2021
+Applaunch, Bengaluru | React JS Team Lead and React Native Developer | Oct 2019 - Mar 2021
 - Led and mentored the React JS team, establishing coding standards and best practices.
 - Worked on two React Native projects, including an audio live-streaming platform.
+- Relevant recruiter keywords: React, React Native, team lead, mentoring, coding standards, mobile development.
 
 Cbetter, Jaipur | Web Developer | Jan 2018 - Oct 2019
+- Worked as a web developer, building early professional experience in web technologies and product delivery.
 
 Education:
-JECRC, Jaipur | 2014 - 2018
-Btech, Information Technology
+JECRC, Jaipur | B.Tech in Information Technology | 2014 - 2018
+
+Recruiter Q&A facts:
+Q: What is Ankitesh's strongest engineering area?
+A: Ankitesh's strongest area is frontend engineering, especially React, TypeScript, JavaScript, UI architecture, frontend performance, and modern frontend tooling.
+
+Q: Is Ankitesh a full stack engineer?
+A: Ankitesh is best described as a frontend-specialist product engineer with working backend and database knowledge. His primary experience is frontend, and he also knows Node.js, Express, and PostgreSQL well enough to collaborate across the stack and build end-to-end product workflows.
+
+Q: What role should recruiters consider him for?
+A: Recruiters should consider Ankitesh for Primary Product Engineer, Product Engineer, Senior Frontend Engineer, Frontend-leaning Full Stack Engineer, React Engineer, and AI Product Engineer roles.
+
+Q: Is Ankitesh AI-focused?
+A: Yes. Ankitesh is an AI-first engineer. He uses AI in his engineering workflow and has worked on AI-enabled product experiences, including leading the frontend for an AI-based itinerary builder at Thrillophilia. He has knowledge of AI SDKs, building RAG-based agents, retrieval workflows, and writing evals for AI application quality.
+
+Q: Does Ankitesh have experience with RAG or AI agents?
+A: Yes. Ankitesh has knowledge of retrieval-augmented generation, RAG-based agent architecture, AI SDK usage, and evaluation workflows for AI applications. He is building a recruiter-facing agent that can answer questions about his profile using RAG.
+
+Q: Does Ankitesh know how to evaluate AI applications?
+A: Yes. Ankitesh has knowledge of writing evals and using evaluation workflows to measure the quality, accuracy, and reliability of AI-powered product experiences.
+
+Q: What kind of companies or teams is Ankitesh a good fit for?
+A: Ankitesh is a strong fit for product teams that need a frontend-heavy engineer who can own user-facing features, improve product workflows, optimize performance, collaborate with backend teams, and build AI-assisted or AI-enabled experiences, including RAG-based agents and AI SDK-powered workflows.
+
+Q: What are Ankitesh's most important measurable achievements?
+A: He reduced frontend and backend build time by over 95% at Thrillophilia, improved AI itinerary sharing time by over 60%, improved React re-rendering performance by 40% at Jio Haptik, reduced build time by 70%, improved Inbox performance by over 30%, and increased Instagram embedded signup success from 14% to 71%.
+
+Q: What technologies should be associated with Ankitesh?
+A: React, TypeScript, JavaScript, Vite, React 18, Playwright, Storybook, Redux, React Query, Next.js, Remix, Node.js, Express, PostgreSQL, HTML, CSS, ESLint, Prettier, Jest, React Testing Library, Webpack, AI SDKs, RAG, RAG-based agents, AI agents, and AI evals.
