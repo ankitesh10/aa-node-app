@@ -1,0 +1,51 @@
+Ankitesh Arora, UI Engineer
+
+Contact:
+Email: ankitesh4@gmail.com
+Phone: +91-7976855996
+GitHub: https://github.com/ankitesh10
+LinkedIn: https://linkedin.com/in/ankitesharora
+Website: https://ankitesharora.com
+
+Summary:
+Front-End Engineer with 7+ years building high-performance React applications at product companies like Postman and Jio Haptik. Specialises in performance optimisation, modern tooling (Vite, React 18, Playwright), and leading UI migrations that measurably improve user experience and developer productivity.
+
+Technologies:
+Frontend: React, TypeScript, JavaScript (ES6+), HTML5, CSS3, Responsive Design, Redux, React Query, Next.js, Remix.
+Tooling & Testing: Vite, Webpack, ESLint, Prettier, Jest, React Testing Library, Playwright, Storybook.
+Backend & DB: Node.js, Express, PostgreSQL.
+Practices: Agile, Design Patterns, Data Structures, UI/UX, Code Review.
+
+Experience:
+
+Thrillophilia | Senior Software Engineer | May 2025 - Present
+- Decoupled the React app from the Ruby on Rails framework and migrated the bundler to Vite. This reduced the build time of the frontend and backend by over 95%.
+- Implemented multi-payment support on the checkout page to improve the experience of thousands of monthly users.
+- Led the frontend of the AI-based itinerary builder, improving the time by over 60% to share the itinerary with end users.
+- Integrated ESLint and Prettier GitHub action to improve and maintain code quality.
+- Integrated Playwright for E2E testing for improving the reliability of the product, also covered the login flow under E2E test.
+
+Postman | Software Engineer - II | Oct 2024 - April 2025
+- Implemented UI/UX improvements to mock servers at Postman, reducing the number of steps it takes to create a Mock server, which improved the experience of nearly 56 million paid users.
+- Added support for loading collection diff asynchronously, improving efficiency for large orgs, mainly for Fortune 500 companies, which relied on these large diffs.
+- Improved the UI of the collection sidebar context menu, enhancing usability, responsiveness and introducing logical grouping of menu actions.
+
+Jio Haptik, Reliance Jio Platform | Software Engineer - III, Frontend | April 2024 - Oct 2024
+- Led the migration to Vite bundler and React 18, resulting in a 40% improvement in re-rendering performance and a 70% reduction in build time. It also resulted in better hot reload performance, increasing developer productivity by approximately 20%.
+- Held weekly review meetings with the team for technical discussion, feedback and improving as an engineer.
+
+Jio Haptik, Reliance Jio Platform | Software Engineer - II, Frontend | May 2021 - March 2024
+- Worked on various features, including WhatsApp carousel card templates, Instagram, Announcement Hub, and Ad Performance, ensuring seamless functionality and optimal user experience across desktop and mobile web platforms.
+- Enhanced the Inbox performance by over 30%, improving user engagement.
+- Worked on integration of Storybook and design system, improving the design consistency across the project and increasing developer productivity.
+- Identified and enhanced the user experience of Instagram's embedded signup process, increasing the signup success rate from 14% to 71%.
+
+Applaunch, Bengaluru | React JS - Team Lead and React Native Developer | Oct 2019 - March 2021
+- Led and mentored the React JS team, establishing coding standards and best practices.
+- Worked on two React Native projects, including an audio live-streaming platform.
+
+Cbetter, Jaipur | Web Developer | Jan 2018 - Oct 2019
+
+Education:
+JECRC, Jaipur | 2014 - 2018
+Btech, Information Technology

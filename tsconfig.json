@@ -4,10 +4,13 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "lib": [
-      "esnext"
+      "esnext",
+      "DOM",
+      "DOM.Iterable"
     ],
     "esModuleInterop": true,
     "strict": false,
+    "skipLibCheck": true,
     "declaration": true,
     "rewriteRelativeImportExtensions": true,
     "module": "NodeNext",

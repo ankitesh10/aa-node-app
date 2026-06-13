@@ -1,11 +1,11 @@
 import {
   insertResourceSchema,
-  NewResourceParams,
+  type NewResourceParams,
   resources,
 } from "../../db/schema/resource.ts";
-import { db } from "../../index.ts";
 import { generateEmbeddings } from "../ai/embedding.ts";
 import { embeddings as embeddingsTable } from "../../db/schema/embedding.ts";
+import { db } from "../../db/client.ts";
 
 export const createResource = async (input: NewResourceParams) => {
   try {
@@ -13,19 +13,17 @@ export const createResource = async (input: NewResourceParams) => {
 
     const embeddings = await generateEmbeddings(content);
 
-    await db.transaction(async (tx) => {
-      const [resource] = await tx
-        .insert(resources)
-        .values({ content })
-        .returning();
+    const [resource] = await db
+      .insert(resources)
+      .values({ content })
+      .returning();
 
-      await tx.insert(embeddingsTable).values(
-        embeddings.map((embedding) => ({
-          resourceId: resource.id,
-          ...embedding,
-        })),
-      );
-    });
+    await db.insert(embeddingsTable).values(
+      embeddings.map((embedding) => ({
+        resourceId: resource.id,
+        ...embedding,
+      })),
+    );
 
     return "Resource successfully created and embedded.";
   } catch (error) {
