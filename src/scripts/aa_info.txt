@@ -85,7 +85,7 @@ Q: Is Ankitesh a full stack engineer?
 A: Ankitesh is best described as a frontend-specialist product engineer with working backend and database knowledge. His primary experience is frontend, and he also knows Node.js, Express, and PostgreSQL well enough to collaborate across the stack and build end-to-end product workflows.
 
 Q: What role should recruiters consider him for?
-A: Recruiters should consider Ankitesh for Primary Product Engineer, Product Engineer, Senior Frontend Engineer, Frontend-leaning Full Stack Engineer, React Engineer, and AI Product Engineer roles.
+A: Recruiters should consider Ankitesh for Product Engineer, Senior Frontend Engineer, Frontend-leaning Full Stack Engineer, React Engineer, and AI Product Engineer roles.
 
 Q: Is Ankitesh AI-focused?
 A: Yes. Ankitesh is an AI-first engineer. He uses AI in his engineering workflow and has worked on AI-enabled product experiences, including leading the frontend for an AI-based itinerary builder at Thrillophilia. He has knowledge of AI SDKs, building RAG-based agents, retrieval workflows, and writing evals for AI application quality.

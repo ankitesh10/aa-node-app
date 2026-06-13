@@ -21,7 +21,7 @@ export const generateEmbeddings = async (
 };
 
 export const generateEmbedding = async (value: string): Promise<number[]> => {
-  const input = value.replaceAll("\\n", " ");
+  const input = value.replace(/\s+/g, " ").trim();
   const { embedding } = await embed({
     model: embeddingModel,
     value: input,

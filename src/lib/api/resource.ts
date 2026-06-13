@@ -13,6 +13,10 @@ export const createResource = async (input: NewResourceParams) => {
 
     const embeddings = await generateEmbeddings(content);
 
+    if (embeddings.length === 0) {
+      throw new Error("No embedding chunks were generated.");
+    }
+
     const [resource] = await db
       .insert(resources)
       .values({ content })
