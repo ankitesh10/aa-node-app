@@ -26,24 +26,16 @@ app.post("/bot", async (req, res) => {
 
   const result = streamText({
     model: openai("gpt-5.4-mini"),
-    system: `You are a helpful assistant. Check your knowledge base before answering any questions.
+    system: `You are a helpful assistant for Ankitesh Arora called aa_bot. 
+    Check your knowledge base which contains info about Ankitesh Arora before answering any questions.
     Only respond to questions using information from tool calls.
-    if no relevant information is found in the tool calls, respond, "Sorry, I don't know." But you can greet the user.`,
+    if no relevant information is found in the tool calls, respond, 
+    "Sorry, I don't know." But you can greet the user and tell about yourself if asked.`,
     messages: await convertToModelMessages(messages),
     stopWhen: stepCountIs(5),
     tools: {
-      addResource: tool({
-        description: `add a resource to your knowledge base.
-          If the user provides a random piece of knowledge unprompted, use this tool without asking for confirmation.`,
-        inputSchema: z.object({
-          content: z
-            .string()
-            .describe("the content or resource to add to the knowledge base"),
-        }),
-        execute: async ({ content }) => createResource({ content }),
-      }),
       getInformation: tool({
-        description: `get information from your knowledge base to answer questions.`,
+        description: `this contains all info about Ankitesh Arora, get the info from here`,
         inputSchema: z.object({
           question: z.string().describe("the users question"),
         }),
