@@ -6,6 +6,8 @@ import { openai } from "@ai-sdk/openai";
 import { createResource } from "./lib/api/resource.ts";
 import z from "zod";
 import { findRelevantContent } from "./lib/ai/embedding.ts";
+import { db } from "./db/client.ts";
+import { sql } from "drizzle-orm";
 
 const app = express();
 app.use(morgan("dev"));
@@ -20,8 +22,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/bot", async (req, res) => {
-  console.log("hello", req.body);
-
   const { messages } = req.body;
 
   const result = streamText({
@@ -49,6 +49,30 @@ app.post("/bot", async (req, res) => {
   });
 
   result.pipeUIMessageStreamToResponse(res);
+});
+
+app.get("/health", async (req, res) => {
+  const start = Date.now();
+
+  try {
+    await db.execute(sql`SELECT 1`);
+
+    res.status(200).json({
+      status: "up",
+      database: {
+        status: "up",
+        latency: `${Date.now() - start}ms`,
+      },
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: "up",
+      database: {
+        status: "down",
+        error: error instanceof Error ? error.message : "Unknown error",
+      },
+    });
+  }
 });
 
 export default app;
