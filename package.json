@@ -7,18 +7,38 @@
   "scripts": {
     "dev": "node src/index.ts",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "db:generate": "pnpm drizzle-kit generate",
+    "db:migrate": "pnpm drizzle-kit migrate",
+    "db:drop": "pnpm drizzle-kit drop",
+    "db:pull": "pnpm drizzle-kit introspect",
+    "db:push": "pnpm drizzle-kit push",
+    "db:studio": "pnpm drizzle-kit studio",
+    "db:check": "pnpm drizzle-kit check"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+  "packageManager": "pnpm@11.5.2+sha512.71c631e382066efc25625d5cf029075de07b61b37f6e27350fbd84b1bda5864c8c1967adc280776b45c30a715c0359a3be08fef42d5bb09e2b99029979692916",
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.68",
+    "@neondatabase/serverless": "^1.1.0",
+    "ai": "^6.0.197",
     "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+    "drizzle-zod": "^0.8.3",
     "express": "^5.2.1",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "nanoid": "^5.1.11",
+    "pg": "^8.21.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@types/node": "^25.9.2",
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   }
 }
