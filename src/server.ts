@@ -8,11 +8,17 @@ import z from "zod";
 import { findRelevantContent } from "./lib/ai/embedding.ts";
 import { db } from "./db/client.ts";
 import { sql } from "drizzle-orm";
+import { getTracer, Laminar } from "@lmnr-ai/lmnr";
+import "dotenv/config";
 
 const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
+
+Laminar.initialize({
+  projectApiKey: process.env.LMNR_PROJECT_API_KEY,
+});
 
 app.get("/", (req, res) => {
   console.log("hello from server");
@@ -46,7 +52,13 @@ app.post("/bot", async (req, res) => {
         execute: async ({ question }) => findRelevantContent(question),
       }),
     },
+    experimental_telemetry: {
+      isEnabled: true,
+      tracer: getTracer(),
+    },
   });
+
+  await Laminar.flush();
 
   result.pipeUIMessageStreamToResponse(res);
 });
