@@ -14,7 +14,8 @@
     "db:pull": "pnpm drizzle-kit introspect",
     "db:push": "pnpm drizzle-kit push",
     "db:studio": "pnpm drizzle-kit studio",
-    "db:check": "pnpm drizzle-kit check"
+    "db:check": "pnpm drizzle-kit check",
+    "eval": "npx lmnr eval"
   },
   "keywords": [],
   "author": "",
