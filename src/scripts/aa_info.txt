@@ -1,4 +1,4 @@
-Ankitesh Arora - Primary Product Engineer, Frontend Specialist, AI-First Engineer
+Ankitesh Arora - Product Engineer, Frontend Specialist, AI-First Engineer
 
 Preferred professional positioning:
 Ankitesh Arora positions himself as a Primary Product Engineer: an engineer who can own product outcomes end to end, translate ambiguous product problems into shipped software, and make strong frontend, UX, performance, and technical tradeoff decisions. His primary professional depth is in frontend engineering, especially React, TypeScript, JavaScript, web performance, developer tooling, and product-facing UI systems. He also has practical backend and database knowledge with Node.js, Express, and PostgreSQL, which helps him collaborate across the stack and build full product flows. Ankitesh is an AI-first engineer who actively uses AI tools and AI product patterns to accelerate engineering work, improve user workflows, and build AI-enabled product experiences. He has knowledge of AI SDKs, retrieval-augmented generation (RAG), RAG-based agents, and evaluation workflows for AI applications.
@@ -47,6 +47,7 @@ Thrillophilia | Senior Software Engineer | May 2025 - Present
 - Relevant recruiter keywords: React, Vite, Rails decoupling, checkout, payments, AI itinerary builder, AI SDK, RAG, RAG-based agent, evals, Playwright, frontend architecture, product engineering, developer productivity.
 
 Previous experience:
+
 Postman | Software Engineer II | Oct 2024 - Apr 2025
 - Implemented UI and UX improvements to Mock Servers at Postman, reducing the number of steps required to create a mock server and improving the experience for Postman's large user base.
 - Added support for loading collection diffs asynchronously, improving efficiency for large organizations and Fortune 500 customers working with large diffs.
