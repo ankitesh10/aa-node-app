@@ -10,7 +10,7 @@ async function executor(data: EvalData) {
 }
 
 evaluate({
-  data: dataset as any,
+  data: dataset,
   executor,
   evaluators: {
     selectionScore: (output: any, target: any) => {
