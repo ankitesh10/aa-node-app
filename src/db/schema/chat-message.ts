@@ -11,10 +11,10 @@ export const chat_messages = pgTable("chat_messages", {
   sessionId: varchar("session_id", { length: 191 })
     .references(() => chat_sessions.id, { onDelete: "cascade" })
     .notNull(),
-  createdAt: timestamp("created_at")
+  createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .default(sql`now()`),
-  updatedAt: timestamp("updated_at")
+  updatedAt: timestamp("updated_at", { withTimezone: true })
     .notNull()
     .default(sql`now()`),
   parts: jsonb("parts"),
