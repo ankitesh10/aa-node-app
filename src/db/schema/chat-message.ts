@@ -16,7 +16,8 @@ export const chat_messages = pgTable("chat_messages", {
     .default(sql`now()`),
   updatedAt: timestamp("updated_at", { withTimezone: true })
     .notNull()
-    .default(sql`now()`),
+    .default(sql`now()`)
+    .$onUpdate(() => sql`now()`),
   parts: jsonb("parts"),
   role: chatMessageRoleEnum("role").notNull(),
   message: text("message").notNull(),

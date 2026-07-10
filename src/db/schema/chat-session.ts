@@ -14,6 +14,7 @@ export const chat_sessions = pgTable("chat_sessions", {
     .default(sql`now()`),
   updatedAt: timestamp("updated_at", { withTimezone: true })
     .notNull()
-    .default(sql`now()`),
+    .default(sql`now()`)
+    .$onUpdate(() => sql`now()`),
   metadata: jsonb("metadata"),
 });
