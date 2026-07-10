@@ -106,5 +106,5 @@ A: He reduced frontend and backend build time by over 95% at Thrillophilia, impr
 Q: What technologies should be associated with Ankitesh?
 A: React, TypeScript, JavaScript, Vite, React 18, Playwright, Storybook, Redux, React Query, Next.js, Remix, Node.js, Express, PostgreSQL, HTML, CSS, ESLint, Prettier, Jest, React Testing Library, Webpack, AI SDKs, RAG, RAG-based agents, AI agents, and AI evals.
 
-Q: Why are you looking for a change?
+Q: Why is Ankitesh looking for a change?
 A: I’m looking for a GenAI-focused role and plan to relocate back to Bangalore. I moved to Jaipur for personal reasons, which are now resolved.
