@@ -2,7 +2,7 @@ import { pgTable, varchar, text, timestamp, jsonb } from "drizzle-orm/pg-core";
 import { nanoid } from "../../lib/util.ts";
 import { sql } from "drizzle-orm";
 import { chat_sessions } from "./chat-session.ts";
-import { chatMessageRoleEnum } from "../enums/chat.enum.js";
+import { chatMessageRoleEnum } from "../enums/chat.enum.ts";
 
 export const chat_messages = pgTable("chat_messages", {
   id: varchar("id", { length: 191 })

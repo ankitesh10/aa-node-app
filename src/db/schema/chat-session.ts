@@ -1,7 +1,7 @@
 import { jsonb, pgTable, timestamp, varchar } from "drizzle-orm/pg-core";
 import { nanoid } from "../../lib/util.ts";
 import { sql } from "drizzle-orm";
-import { chatStatusEnum } from "../enums/chat.enum.js";
+import { chatStatusEnum } from "../enums/chat.enum.ts";
 
 export const chat_sessions = pgTable("chat_sessions", {
   id: varchar("id", { length: 191 })
