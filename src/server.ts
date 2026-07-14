@@ -32,8 +32,6 @@ app.get("/", (req, res) => {
 app.post("/bot", async (req, res) => {
   const { messages, sessionId } = req.body;
 
-  console.log("messages", JSON.stringify(messages));
-
   try {
     const userMessage = messages[messages.length - 1].parts
       .filter((part) => part.type === "text")
@@ -41,9 +39,9 @@ app.post("/bot", async (req, res) => {
       .join("");
 
     await db.insert(chat_messages).values({
-      sessionId,
       role: "user",
       message: userMessage,
+      sessionId,
     });
 
     let usageForDb: unknown;
