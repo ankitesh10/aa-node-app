@@ -13,7 +13,7 @@ rsync -azP --delete \
 ### how to re-deploy
 
 ```bash
-docker compose up -d --build app
+docker compose up -d --build app # Go in app directory first
 
 docker compose logs -f --tail=100 app  #check result
 ```
