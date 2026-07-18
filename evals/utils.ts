@@ -4,11 +4,11 @@ import { SYSTEM_PROMPT } from "../src/lib/ai/constant.js";
 
 export function buildPrompt(
   data: EvalData | Omit<EvalData, "tools">,
-): { system: string; messages: ModelMessage[] } {
+): { instructions: string; messages: ModelMessage[] } {
   const systemPrompt = data.systemPrompt ?? SYSTEM_PROMPT;
 
   return {
-    system: systemPrompt,
+    instructions: systemPrompt,
     messages: [{ role: "user", content: data.prompt! }],
   };
 }

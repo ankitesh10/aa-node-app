@@ -1,8 +1,17 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import { convertToModelMessages, stepCountIs, streamText, tool } from "ai";
+import {
+  convertToModelMessages,
+  isStepCount,
+  pipeUIMessageStreamToResponse,
+  registerTelemetry,
+  streamText,
+  tool,
+  toUIMessageStream,
+} from "ai";
 import { openai } from "@ai-sdk/openai";
+import { OpenTelemetry } from "@ai-sdk/otel";
 import z from "zod";
 import { findRelevantContent } from "./lib/ai/embedding.ts";
 import { db } from "./db/client.ts";
@@ -21,9 +30,9 @@ app.use(cors());
 Laminar.initialize({
   projectApiKey: process.env.LMNR_PROJECT_API_KEY,
 });
+registerTelemetry(new OpenTelemetry({ tracer: getTracer() }));
 
 app.get("/", (req, res) => {
-  console.log("hello from server");
   res.status(200);
   res.json({ message: "hello" });
   res.end();
@@ -49,14 +58,12 @@ app.post("/bot", async (req, res) => {
 
     const result = streamText({
       model: openai("gpt-5.4-mini"),
-      system: SYSTEM_PROMPT,
+      instructions: SYSTEM_PROMPT,
       messages: await convertToModelMessages(messages),
-      stopWhen: stepCountIs(5),
-      onFinish: async ({ totalUsage, text, finishReason }) => {
-        console.log("Total tokens used:", totalUsage, text, finishReason);
-
+      stopWhen: isStepCount(5),
+      onEnd: async ({ usage, text, finishReason }) => {
         usageForDb = {
-          totalUsage,
+          usage,
           finishReason,
         };
 
@@ -73,27 +80,24 @@ app.post("/bot", async (req, res) => {
           execute: async ({ question }) => findRelevantContent(question),
         }),
       },
-      experimental_telemetry: {
-        isEnabled: true,
-        tracer: getTracer(),
-      },
     });
 
-    result.pipeUIMessageStreamToResponse(res, {
-      onFinish: async (response) => {
-        console.log("Assistant message:", response);
-
+    const uiMessageStream = toUIMessageStream({
+      stream: result.stream,
+      onEnd: async ({ responseMessage }) => {
         await db.insert(chat_messages).values({
           sessionId,
-          role: response.responseMessage.role,
+          role: responseMessage.role,
           message,
-          parts: response.responseMessage.parts,
+          parts: responseMessage.parts,
           metadata: {
             usage: usageForDb,
           },
         });
       },
     });
+
+    pipeUIMessageStreamToResponse({ response: res, stream: uiMessageStream });
   } catch (error) {
     res.status(503).json({
       status: "up",

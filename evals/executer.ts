@@ -1,7 +1,7 @@
 import z from "zod";
 import type { EvalData } from "./type.js";
 import { buildPrompt } from "./utils.js";
-import { ToolSet, generateText, stepCountIs, tool } from "ai";
+import { generateText, isStepCount, tool, type ToolSet } from "ai";
 import { openai } from "@ai-sdk/openai";
 
 const TOOL_DEFINATION = {
@@ -20,7 +20,7 @@ function isToolName(toolName: string): toolName is ToolName {
 }
 
 export async function singleTurnExecuter(data: EvalData) {
-  const { system, messages } = buildPrompt(data);
+  const { instructions, messages } = buildPrompt(data);
 
   const tools: ToolSet = {};
 
@@ -37,10 +37,10 @@ export async function singleTurnExecuter(data: EvalData) {
 
   const { toolCalls } = await generateText({
     model: openai(data.config?.model ?? "gpt-5.4-mini"),
-    system,
+    instructions,
     messages,
     tools,
-    stopWhen: stepCountIs(1),
+    stopWhen: isStepCount(1),
     temperature: data.config?.temperature,
   });
 
