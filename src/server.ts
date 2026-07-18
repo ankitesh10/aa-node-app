@@ -6,6 +6,7 @@ import {
   isStepCount,
   pipeUIMessageStreamToResponse,
   registerTelemetry,
+  safeValidateUIMessages,
   streamText,
   tool,
   toUIMessageStream,
@@ -20,6 +21,7 @@ import { getTracer, Laminar } from "@lmnr-ai/lmnr";
 import "dotenv/config";
 import { SYSTEM_PROMPT } from "./lib/ai/constant.ts";
 import { createChatSession } from "./lib/api/chat.ts";
+import { botRequestSchema } from "./lib/api/bot-schema.ts";
 import { chat_messages } from "./db/schema/chat-message.ts";
 
 const app = express();
@@ -39,14 +41,56 @@ app.get("/", (req, res) => {
 });
 
 app.post("/bot", async (req, res) => {
-  const { messages, sessionId } = req.body;
+  const request = botRequestSchema.safeParse(req.body);
+
+  if (!request.success) {
+    return res.status(400).json({
+      error: "Invalid request",
+      issues: request.error.issues.map(({ path, message }) => ({
+        path: path.join("."),
+        message,
+      })),
+    });
+  }
+
+  const validatedMessages = await safeValidateUIMessages({
+    messages: request.data.messages,
+  });
+
+  if (!validatedMessages.success) {
+    return res.status(400).json({
+      error: "Invalid request",
+      issues: [
+        {
+          path: "messages",
+          message: "Messages contain invalid parts",
+        },
+      ],
+    });
+  }
+
+  const { sessionId } = request.data;
+  const messages = validatedMessages.data;
+  const latestMessage = messages[messages.length - 1];
+  const userMessage = latestMessage.parts
+    .filter((part) => part.type === "text")
+    .map((part) => part.text)
+    .join("")
+    .trim();
+
+  if (latestMessage.role !== "user" || userMessage.length === 0) {
+    return res.status(400).json({
+      error: "Invalid request",
+      issues: [
+        {
+          path: `messages.${messages.length - 1}`,
+          message: "The latest message must be a non-empty user text message",
+        },
+      ],
+    });
+  }
 
   try {
-    const userMessage = messages[messages.length - 1].parts
-      .filter((part) => part.type === "text")
-      .map((part) => part.text)
-      .join("");
-
     await db.insert(chat_messages).values({
       role: "user",
       message: userMessage,
