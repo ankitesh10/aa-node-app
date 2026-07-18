@@ -38,7 +38,9 @@ export const createBotStream = async ({
 
   const result = streamText({
     model: openai("gpt-5.4-mini"),
-    instructions: SYSTEM_PROMPT,
+    instructions: `${SYSTEM_PROMPT}
+
+Format text decoration with xterm-compatible ANSI SGR escape sequences (for example, bold, dim, italic, underline, and colors). Do not use Markdown for decoration. Always reset formatting with \x1b[0m after decorated text.`,
     messages: await convertToModelMessages(messages),
     stopWhen: isStepCount(5),
     onEnd: async ({ usage, text, finishReason }) => {
