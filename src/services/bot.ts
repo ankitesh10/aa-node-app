@@ -8,11 +8,13 @@ import {
   toUIMessageStream,
   type UIMessage,
 } from "ai";
+import { nanoid } from "nanoid";
 import z from "zod";
 import { db } from "../db/client.ts";
 import { chat_messages } from "../db/schema/chat-message.ts";
 import { SYSTEM_PROMPT } from "../lib/ai/constant.ts";
 import { findRelevantContent } from "../lib/ai/embedding.ts";
+import { WORK_TIMELINE } from "../lib/ai/work-timeline.ts";
 
 type CreateBotStreamInput = {
   sessionId: string;
@@ -57,11 +59,23 @@ export const createBotStream = async ({
         }),
         execute: async ({ question }) => findRelevantContent(question),
       }),
+      getWorkTimeline: tool({
+        description:
+          "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+        inputSchema: z.object({
+          question: z
+            .string()
+            .describe("the user question about work experience"),
+        }),
+        execute: async () => WORK_TIMELINE,
+      }),
     },
   });
 
   return toUIMessageStream({
     stream: result.stream,
+    originalMessages: messages,
+    generateMessageId: nanoid,
     onEnd: async ({ responseMessage }) => {
       await db.insert(chat_messages).values({
         sessionId,
