@@ -11,6 +11,13 @@ const TOOL_DEFINATION = {
       question: z.string().describe("the users question"),
     }),
   },
+  getWorkTimeline: {
+    description:
+      "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+    inputSchema: z.object({
+      question: z.string().describe("the user question about work experience"),
+    }),
+  },
 };
 
 type ToolName = keyof typeof TOOL_DEFINATION;
