@@ -7,6 +7,7 @@ import type {
 } from "./type.js";
 import { openai } from "@ai-sdk/openai";
 import z from "zod";
+import { SYSTEM_PROMPT } from "../src/lib/ai/constant.js";
 
 export function toolSelectionScore(
   output: SingleTurnResult,
@@ -67,6 +68,8 @@ Scoring criteria:
         role: "user",
         content: `Task: ${target.originalTask}
 
+  
+Instruction passed to agent ${JSON.stringify(SYSTEM_PROMPT)}
 Tools called: ${JSON.stringify(output.toolCallOrder)}
 Tool results provided: ${JSON.stringify(target.mockToolResults)}
 
