@@ -1,14 +1,29 @@
 import z from "zod";
-import type { EvalData } from "./type.js";
-import { buildPrompt } from "./utils.js";
-import { generateText, isStepCount, tool, type ToolSet } from "ai";
+import type { EvalData, MultiTurnEvalData } from "./type.js";
+import { buildMockedTools, buildPrompt } from "./utils.js";
+import {
+  generateText,
+  isStepCount,
+  ModelMessage,
+  stepCountIs,
+  tool,
+  type ToolSet,
+} from "ai";
 import { openai } from "@ai-sdk/openai";
+import { SYSTEM_PROMPT } from "../src/lib/ai/constant.js";
 
 const TOOL_DEFINATION = {
   getInformation: {
     description: `this contains all info about Ankitesh Arora, get the info from here`,
     inputSchema: z.object({
       question: z.string().describe("the users question"),
+    }),
+  },
+  getWorkTimeline: {
+    description:
+      "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+    inputSchema: z.object({
+      question: z.string().describe("the user question about work experience"),
     }),
   },
 };
@@ -50,5 +65,54 @@ export async function singleTurnExecuter(data: EvalData) {
     toolCalls,
     toolNames,
     selectedAny: toolNames.length > 0,
+  };
+}
+
+export async function multiTurnWithMocks(data: MultiTurnEvalData) {
+  const tools = buildMockedTools(data.mockTools);
+
+  const messages: ModelMessage[] = data.messages ?? [
+    { role: "user", content: data.prompt! },
+  ];
+
+  const result = await generateText({
+    model: openai(data.config?.model ?? "gpt-5.4-mini"),
+    instructions: data.messages ? undefined : SYSTEM_PROMPT,
+    messages,
+    tools,
+    stopWhen: stepCountIs(data.config?.maxSteps ?? 20),
+  });
+
+  const allTools: string[] = [];
+
+  const steps = result.steps.map((step) => {
+    const stepToolCalls = (step.toolCalls ?? []).map((tc) => {
+      allTools.push(tc.toolName);
+
+      return {
+        toolName: tc.toolName,
+        args: "args" in tc ? tc.args : {},
+      };
+    });
+
+    const stepToolResults = (step.staticToolCalls ?? []).map((tr) => ({
+      toolName: tr.toolName,
+      result: "results" in tr ? tr.results : tr,
+    }));
+
+    return {
+      toolCalls: stepToolCalls?.length > 0 ? stepToolCalls : undefined,
+      stepToolResults: stepToolResults.length > 0 ? stepToolResults : undefined,
+      text: step.text || undefined,
+    };
+  });
+
+  const toolsUsed = [new Set(allTools)];
+
+  return {
+    text: result.text,
+    steps,
+    toolsUsed,
+    toolCallOrder: allTools,
   };
 }

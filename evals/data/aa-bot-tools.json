@@ -1,314 +1,397 @@
 [
   {
     "data": {
-      "prompt": "What is Ankitesh Arora's current role and strongest engineering area?",
-      "tools": ["getInformation"]
+      "prompt": "What frontend technologies and engineering strengths does Ankitesh have?",
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
       "category": "golden"
     },
     "metadata": {
-      "description": "Direct profile question - should use getInformation"
-    }
-  },
-  {
-    "data": {
-      "prompt": "Summarize Ankitesh's experience with React, TypeScript, and frontend performance.",
-      "tools": ["getInformation"]
-    },
-    "target": {
-      "expectedTools": ["getInformation"],
-      "category": "golden"
-    },
-    "metadata": {
-      "description": "Skills and experience question - should use getInformation"
-    }
-  },
-  {
-    "data": {
-      "prompt": "Which companies has Ankitesh worked at?",
-      "tools": ["getInformation"]
-    },
-    "target": {
-      "expectedTools": ["getInformation"],
-      "category": "golden"
-    },
-    "metadata": {
-      "description": "Employment history question - should use getInformation"
+      "description": "General skills question should use getInformation"
     }
   },
   {
     "data": {
       "prompt": "Does Ankitesh have backend experience with Node.js or PostgreSQL?",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
       "category": "golden"
     },
     "metadata": {
-      "description": "Backend skill question about Ankitesh - should use getInformation"
+      "description": "Backend skills question should use getInformation"
     }
   },
   {
     "data": {
       "prompt": "What AI or RAG experience does Ankitesh have?",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
       "category": "golden"
     },
     "metadata": {
-      "description": "AI experience question - should use getInformation"
+      "description": "AI experience question should use getInformation"
     }
   },
   {
     "data": {
-      "prompt": "Tell me about Ankitesh's work at Postman.",
-      "tools": ["getInformation"]
+      "prompt": "Tell me about the frontend performance improvements Ankitesh delivered.",
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
       "category": "golden"
     },
     "metadata": {
-      "description": "Company-specific profile question - should use getInformation"
+      "description": "Achievement question without a timeline focus should use getInformation"
     }
   },
   {
     "data": {
-      "prompt": "What are Ankitesh's most important measurable achievements?",
-      "tools": ["getInformation"]
+      "prompt": "What did Ankitesh accomplish at Postman?",
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
       "category": "golden"
     },
     "metadata": {
-      "description": "Achievement question - should use getInformation"
+      "description": "Company-specific achievements without dates should use getInformation"
     }
   },
   {
     "data": {
       "prompt": "Is Ankitesh a good fit for a senior frontend engineer role?",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
       "category": "golden"
     },
     "metadata": {
-      "description": "Role fit question - should use getInformation"
+      "description": "Role-fit question should use getInformation"
     }
   },
   {
     "data": {
-      "prompt": "Can you write a short recruiter pitch for Ankitesh?",
-      "tools": ["getInformation"]
+      "prompt": "Write a short recruiter pitch for Ankitesh.",
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
       "category": "golden"
     },
     "metadata": {
-      "description": "Recruiter pitch requires profile facts - should use getInformation"
+      "description": "Profile-based writing request should use getInformation"
     }
   },
   {
     "data": {
-      "prompt": "Based on the available profile, should a recruiter shortlist Ankitesh for AI product engineer roles?",
-      "tools": ["getInformation"]
+      "prompt": "What degree does Ankitesh hold?",
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
       "category": "golden"
     },
     "metadata": {
-      "description": "AI product engineer fit question - should use getInformation"
-    }
-  },
-  {
-    "data": {
-      "prompt": "What should I ask Ankitesh in a frontend system design interview?",
-      "tools": ["getInformation"]
-    },
-    "target": {
-      "expectedTools": ["getInformation"],
-      "category": "secondary"
-    },
-    "metadata": {
-      "description": "Interview planning anchored to Ankitesh's profile - likely uses getInformation"
-    }
-  },
-  {
-    "data": {
-      "prompt": "Compare Ankitesh's fit for a product engineer role versus a pure backend role.",
-      "tools": ["getInformation"]
-    },
-    "target": {
-      "expectedTools": ["getInformation"],
-      "category": "secondary"
-    },
-    "metadata": {
-      "description": "Comparative role-fit request - likely uses getInformation"
-    }
-  },
-  {
-    "data": {
-      "prompt": "Draft three bullet points from Ankitesh's profile for a hiring manager.",
-      "tools": ["getInformation"]
-    },
-    "target": {
-      "expectedTools": ["getInformation"],
-      "category": "secondary"
-    },
-    "metadata": {
-      "description": "Profile-based writing request - likely uses getInformation"
-    }
-  },
-  {
-    "data": {
-      "prompt": "What gaps might Ankitesh have for a staff backend infrastructure role?",
-      "tools": ["getInformation"]
-    },
-    "target": {
-      "expectedTools": ["getInformation"],
-      "category": "secondary"
-    },
-    "metadata": {
-      "description": "Profile gap analysis - likely uses getInformation"
-    }
-  },
-  {
-    "data": {
-      "prompt": "What is Ankitesh's favorite food?",
-      "tools": ["getInformation"]
-    },
-    "target": {
-      "expectedTools": ["getInformation"],
-      "category": "secondary"
-    },
-    "metadata": {
-      "description": "Unknown personal detail about Ankitesh - should still check available information"
+      "description": "Education question should use getInformation"
     }
   },
   {
     "data": {
       "prompt": "What is Ankitesh's salary expectation?",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
-      "category": "secondary"
+      "forbiddenTools": ["getWorkTimeline"],
+      "category": "golden"
     },
     "metadata": {
-      "description": "Unknown recruiting detail about Ankitesh - should still check available information"
+      "description": "Unknown recruiting detail should still check getInformation"
     }
   },
   {
     "data": {
-      "prompt": "Is Ankitesh available for relocation to Germany?",
-      "tools": ["getInformation"]
+      "prompt": "Is Ankitesh available to relocate to Germany?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "Availability question should use getInformation"
+    }
+  },
+  {
+    "data": {
+      "prompt": "List Ankitesh's work history in chronological order.",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "Explicit chronological work history should use getWorkTimeline"
+    }
+  },
+  {
+    "data": {
+      "prompt": "Which companies has Ankitesh worked at, from earliest to latest?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "Ordered employer history should use getWorkTimeline"
+    }
+  },
+  {
+    "data": {
+      "prompt": "When did Ankitesh work at Postman?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "Role-date question should use getWorkTimeline"
+    }
+  },
+  {
+    "data": {
+      "prompt": "How did Ankitesh progress from Web Developer to Senior Software Engineer?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "Career progression question should use getWorkTimeline"
+    }
+  },
+  {
+    "data": {
+      "prompt": "What role did Ankitesh take after leaving Applaunch?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "Transition between employers should use getWorkTimeline"
+    }
+  },
+  {
+    "data": {
+      "prompt": "How long was Ankitesh at Jio Haptik, and how did his title change there?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "Employer tenure and title progression should use getWorkTimeline"
+    }
+  },
+  {
+    "data": {
+      "prompt": "Where does Ankitesh work now, and when did he start?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "Current employer with start date should use getWorkTimeline"
+    }
+  },
+  {
+    "data": {
+      "prompt": "Give me the dates and titles for each of Ankitesh's roles.",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "category": "golden"
+    },
+    "metadata": {
+      "description": "All role dates and titles should use getWorkTimeline"
+    }
+  },
+  {
+    "data": {
+      "prompt": "Summarize Ankitesh's career and strongest technical skills.",
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
       "expectedTools": ["getInformation"],
       "category": "secondary"
     },
     "metadata": {
-      "description": "Availability question about Ankitesh - should still check available information"
+      "description": "Mixed career-summary request may reasonably use profile information"
+    }
+  },
+  {
+    "data": {
+      "prompt": "What should I ask Ankitesh in a frontend system design interview?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getInformation"],
+      "category": "secondary"
+    },
+    "metadata": {
+      "description": "Interview planning anchored to the profile may use getInformation"
+    }
+  },
+  {
+    "data": {
+      "prompt": "Compare Ankitesh's fit for a product engineer role versus a pure backend role.",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getInformation"],
+      "category": "secondary"
+    },
+    "metadata": {
+      "description": "Comparative role-fit request may use getInformation"
+    }
+  },
+  {
+    "data": {
+      "prompt": "What are the biggest milestones in Ankitesh's career?",
+      "tools": ["getInformation", "getWorkTimeline"]
+    },
+    "target": {
+      "expectedTools": ["getWorkTimeline"],
+      "category": "secondary"
+    },
+    "metadata": {
+      "description": "Career milestones may reasonably be interpreted as a timeline request"
     }
   },
   {
     "data": {
       "prompt": "Hi",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
-      "forbiddenTools": ["getInformation"],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
       "category": "negative"
     },
     "metadata": {
-      "description": "Simple greeting - should NOT use getInformation"
+      "description": "Simple greeting should not use either tool"
     }
   },
   {
     "data": {
       "prompt": "Who are you?",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
-      "forbiddenTools": ["getInformation"],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
       "category": "negative"
     },
     "metadata": {
-      "description": "Bot identity question - should NOT use getInformation"
+      "description": "Bot identity question should not use either tool"
     }
   },
   {
     "data": {
       "prompt": "Thanks, that helps.",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
-      "forbiddenTools": ["getInformation"],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
       "category": "negative"
     },
     "metadata": {
-      "description": "Conversation acknowledgement - should NOT use getInformation"
+      "description": "Conversation acknowledgement should not use either tool"
     }
   },
   {
     "data": {
       "prompt": "What is the capital of France?",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
-      "forbiddenTools": ["getInformation"],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
       "category": "negative"
     },
     "metadata": {
-      "description": "General knowledge question - should NOT use getInformation"
+      "description": "General knowledge question should not use either tool"
     }
   },
   {
     "data": {
       "prompt": "Write a JavaScript function to debounce input changes.",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
-      "forbiddenTools": ["getInformation"],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
       "category": "negative"
     },
     "metadata": {
-      "description": "General coding request - should NOT use getInformation"
+      "description": "General coding request should not use either tool"
     }
   },
   {
     "data": {
       "prompt": "Can you explain how HTTP caching works?",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
-      "forbiddenTools": ["getInformation"],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
       "category": "negative"
     },
     "metadata": {
-      "description": "General technical explanation - should NOT use getInformation"
+      "description": "General technical explanation should not use either tool"
     }
   },
   {
     "data": {
       "prompt": "Tell me a joke.",
-      "tools": ["getInformation"]
+      "tools": ["getInformation", "getWorkTimeline"]
     },
     "target": {
-      "forbiddenTools": ["getInformation"],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
       "category": "negative"
     },
     "metadata": {
-      "description": "Entertainment request - should NOT use getInformation"
+      "description": "Entertainment request should not use either tool"
     }
   }
 ]

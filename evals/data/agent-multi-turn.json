@@ -1,0 +1,361 @@
+[
+  {
+    "data": {
+      "prompt": "List Ankitesh's work history in chronological order and include the dates and title for every role.",
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"summary\":\"Ankitesh is a product-minded frontend engineer with 7+ years of experience.\"}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"timeline\":[{\"company\":\"Cbetter\",\"title\":\"Web Developer\",\"period\":\"Jan 2018 - Oct 2019\"},{\"company\":\"Applaunch\",\"title\":\"React JS Team Lead and React Native Developer\",\"period\":\"Oct 2019 - Mar 2021\"},{\"company\":\"Jio Haptik\",\"title\":\"Software Engineer II, Frontend\",\"period\":\"May 2021 - Mar 2024\"},{\"company\":\"Jio Haptik\",\"title\":\"Software Engineer III, Frontend\",\"period\":\"Apr 2024 - Oct 2024\"},{\"company\":\"Postman\",\"title\":\"Software Engineer II\",\"period\":\"Oct 2024 - Apr 2025\"},{\"company\":\"Thrillophilia\",\"title\":\"Senior Software Engineer\",\"period\":\"May 2025 - Present\"}]}"
+        }
+      },
+      "config": {
+        "maxSteps": 5
+      }
+    },
+    "target": {
+      "originalTask": "List Ankitesh's work history in chronological order and include the dates and title for every role.",
+      "expectedToolOrder": ["getWorkTimeline"],
+      "forbiddenTools": ["getInformation"],
+      "mockToolResults": {
+        "getWorkTimeline": "{\"timeline\":[{\"company\":\"Cbetter\",\"title\":\"Web Developer\",\"period\":\"Jan 2018 - Oct 2019\"},{\"company\":\"Applaunch\",\"title\":\"React JS Team Lead and React Native Developer\",\"period\":\"Oct 2019 - Mar 2021\"},{\"company\":\"Jio Haptik\",\"title\":\"Software Engineer II, Frontend\",\"period\":\"May 2021 - Mar 2024\"},{\"company\":\"Jio Haptik\",\"title\":\"Software Engineer III, Frontend\",\"period\":\"Apr 2024 - Oct 2024\"},{\"company\":\"Postman\",\"title\":\"Software Engineer II\",\"period\":\"Oct 2024 - Apr 2025\"},{\"company\":\"Thrillophilia\",\"title\":\"Senior Software Engineer\",\"period\":\"May 2025 - Present\"}]}"
+      },
+      "category": "negative"
+    },
+    "metadata": {
+      "description": "Negative: Chronological work-history task should use getWorkTimeline, not getInformation."
+    }
+  },
+  {
+    "data": {
+      "prompt": "Summarize Ankitesh's strongest engineering areas and recommend the roles that fit him best.",
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"strengths\":[\"React\",\"TypeScript\",\"frontend performance\",\"product engineering\",\"AI-enabled product development\"],\"bestFitRoles\":[\"Product Engineer\",\"Senior Frontend Engineer\",\"Frontend-leaning Full Stack Engineer\",\"React Engineer\",\"AI Product Engineer\"]}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"timeline\":[]}"
+        }
+      },
+      "config": {
+        "maxSteps": 5
+      }
+    },
+    "target": {
+      "originalTask": "Summarize Ankitesh's strongest engineering areas and recommend the roles that fit him best.",
+      "expectedToolOrder": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
+      "mockToolResults": {
+        "getInformation": "{\"strengths\":[\"React\",\"TypeScript\",\"frontend performance\",\"product engineering\",\"AI-enabled product development\"],\"bestFitRoles\":[\"Product Engineer\",\"Senior Frontend Engineer\",\"Frontend-leaning Full Stack Engineer\",\"React Engineer\",\"AI Product Engineer\"]}"
+      },
+      "category": "negative"
+    },
+    "metadata": {
+      "description": "Negative: Skills and role-fit task should use getInformation, not getWorkTimeline."
+    }
+  },
+  {
+    "data": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "I'm reviewing Ankitesh's previous companies."
+        },
+        {
+          "role": "assistant",
+          "content": "I can help with his employment timeline and the work he delivered at each company."
+        },
+        {
+          "role": "user",
+          "content": "First tell me when Ankitesh worked at Postman, then summarize what he accomplished there."
+        }
+      ],
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"company\":\"Postman\",\"achievements\":[\"Improved the Mock Servers creation UI and UX\",\"Added asynchronous collection-diff loading for large organizations\",\"Improved the collection sidebar context menu\"]}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"company\":\"Postman\",\"title\":\"Software Engineer II\",\"period\":\"Oct 2024 - Apr 2025\"}"
+        }
+      },
+      "config": {
+        "maxSteps": 10
+      }
+    },
+    "target": {
+      "originalTask": "First tell me when Ankitesh worked at Postman, then summarize what he accomplished there.",
+      "expectedToolOrder": ["getWorkTimeline", "getInformation"],
+      "forbiddenTools": [],
+      "mockToolResults": {
+        "getWorkTimeline": "{\"company\":\"Postman\",\"title\":\"Software Engineer II\",\"period\":\"Oct 2024 - Apr 2025\"}",
+        "getInformation": "{\"company\":\"Postman\",\"achievements\":[\"Improved the Mock Servers creation UI and UX\",\"Added asynchronous collection-diff loading for large organizations\",\"Improved the collection sidebar context menu\"]}"
+      },
+      "category": "conversation-continuation"
+    },
+    "metadata": {
+      "description": "Mid-conversation: User narrows an employer discussion to Postman. Should retrieve dates before achievement details."
+    }
+  },
+  {
+    "data": {
+      "prompt": "Assess Ankitesh's backend experience first, then tell me the dates of his current role.",
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"backendExperience\":\"Working knowledge of Node.js, Express, PostgreSQL, and REST APIs; primary depth remains frontend engineering.\"}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"company\":\"Thrillophilia\",\"title\":\"Senior Software Engineer\",\"period\":\"May 2025 - Present\"}"
+        }
+      },
+      "config": {
+        "maxSteps": 5
+      }
+    },
+    "target": {
+      "originalTask": "Assess Ankitesh's backend experience first, then tell me the dates of his current role.",
+      "expectedToolOrder": ["getInformation", "getWorkTimeline"],
+      "forbiddenTools": [],
+      "mockToolResults": {
+        "getInformation": "{\"backendExperience\":\"Working knowledge of Node.js, Express, PostgreSQL, and REST APIs; primary depth remains frontend engineering.\"}",
+        "getWorkTimeline": "{\"company\":\"Thrillophilia\",\"title\":\"Senior Software Engineer\",\"period\":\"May 2025 - Present\"}"
+      },
+      "category": "task-completion"
+    },
+    "metadata": {
+      "description": "Multi-step task: Should retrieve general profile evidence before current-role dates."
+    }
+  },
+  {
+    "data": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Did Ankitesh spend several years at any one company?"
+        },
+        {
+          "role": "assistant",
+          "content": "Yes. His profile includes multiple consecutive roles at Jio Haptik."
+        },
+        {
+          "role": "user",
+          "content": "Explain Ankitesh's title progression at Jio Haptik, then list his measurable performance achievements there."
+        }
+      ],
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"company\":\"Jio Haptik\",\"achievements\":[\"Improved re-rendering performance by 40%\",\"Reduced build time by 70%\",\"Improved hot reload productivity by approximately 20%\",\"Improved Inbox performance by over 30%\",\"Increased Instagram embedded-signup success from 14% to 71%\"]}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"timeline\":[{\"company\":\"Jio Haptik\",\"title\":\"Software Engineer II, Frontend\",\"period\":\"May 2021 - Mar 2024\"},{\"company\":\"Jio Haptik\",\"title\":\"Software Engineer III, Frontend\",\"period\":\"Apr 2024 - Oct 2024\"}]}"
+        }
+      },
+      "config": {
+        "maxSteps": 10
+      }
+    },
+    "target": {
+      "originalTask": "Explain Ankitesh's title progression at Jio Haptik, then list his measurable performance achievements there.",
+      "expectedToolOrder": ["getWorkTimeline", "getInformation"],
+      "forbiddenTools": [],
+      "mockToolResults": {
+        "getWorkTimeline": "{\"timeline\":[{\"company\":\"Jio Haptik\",\"title\":\"Software Engineer II, Frontend\",\"period\":\"May 2021 - Mar 2024\"},{\"company\":\"Jio Haptik\",\"title\":\"Software Engineer III, Frontend\",\"period\":\"Apr 2024 - Oct 2024\"}]}",
+        "getInformation": "{\"company\":\"Jio Haptik\",\"achievements\":[\"Improved re-rendering performance by 40%\",\"Reduced build time by 70%\",\"Improved hot reload productivity by approximately 20%\",\"Improved Inbox performance by over 30%\",\"Increased Instagram embedded-signup success from 14% to 71%\"]}"
+      },
+      "category": "conversation-continuation"
+    },
+    "metadata": {
+      "description": "Mid-conversation: Follow-up about Jio Haptik should use the timeline for progression and profile retrieval for metrics."
+    }
+  },
+  {
+    "data": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "I'm deciding whether to shortlist Ankitesh."
+        },
+        {
+          "role": "assistant",
+          "content": "I can summarize his background and assess the roles that match his experience."
+        },
+        {
+          "role": "user",
+          "content": "Which companies has Ankitesh worked at, and which roles should a recruiter consider him for now?"
+        }
+      ],
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"bestFitRoles\":[\"Product Engineer\",\"Senior Frontend Engineer\",\"Frontend-leaning Full Stack Engineer\",\"React Engineer\",\"AI Product Engineer\"]}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"companies\":[\"Cbetter\",\"Applaunch\",\"Jio Haptik\",\"Postman\",\"Thrillophilia\"]}"
+        }
+      },
+      "config": {
+        "maxSteps": 10
+      }
+    },
+    "target": {
+      "originalTask": "Which companies has Ankitesh worked at, and which roles should a recruiter consider him for now?",
+      "expectedToolOrder": ["getWorkTimeline", "getInformation"],
+      "forbiddenTools": [],
+      "mockToolResults": {
+        "getWorkTimeline": "{\"companies\":[\"Cbetter\",\"Applaunch\",\"Jio Haptik\",\"Postman\",\"Thrillophilia\"]}",
+        "getInformation": "{\"bestFitRoles\":[\"Product Engineer\",\"Senior Frontend Engineer\",\"Frontend-leaning Full Stack Engineer\",\"React Engineer\",\"AI Product Engineer\"]}"
+      },
+      "category": "conversation-continuation"
+    },
+    "metadata": {
+      "description": "Mid-conversation: Recruiter follow-up should fetch employment history before making a profile-grounded role recommendation."
+    }
+  },
+  {
+    "data": {
+      "prompt": "What is Ankitesh's favorite food?",
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"results\":[],\"message\":\"No relevant information found.\"}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"timeline\":[]}"
+        }
+      },
+      "config": {
+        "maxSteps": 5
+      }
+    },
+    "target": {
+      "originalTask": "What is Ankitesh's favorite food?",
+      "expectedToolOrder": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
+      "mockToolResults": {
+        "getInformation": "{\"results\":[],\"message\":\"No relevant information found.\"}"
+      },
+      "category": "negative"
+    },
+    "metadata": {
+      "description": "Unknown profile detail: Should check getInformation and decline to invent an answer."
+    }
+  },
+  {
+    "data": {
+      "prompt": "Tell me Ankitesh's education and how a recruiter can contact him.",
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"education\":{\"institution\":\"JECRC, Jaipur\",\"degree\":\"B.Tech in Information Technology\",\"period\":\"2014 - 2018\"},\"contact\":{\"email\":\"ankitesh4@gmail.com\",\"github\":\"https://github.com/ankitesh10\",\"linkedin\":\"https://linkedin.com/in/ankitesharora\",\"website\":\"https://ankitesharora.com\"}}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"timeline\":[]}"
+        }
+      },
+      "config": {
+        "maxSteps": 5
+      }
+    },
+    "target": {
+      "originalTask": "Tell me Ankitesh's education and how a recruiter can contact him.",
+      "expectedToolOrder": ["getInformation"],
+      "forbiddenTools": ["getWorkTimeline"],
+      "mockToolResults": {
+        "getInformation": "{\"education\":{\"institution\":\"JECRC, Jaipur\",\"degree\":\"B.Tech in Information Technology\",\"period\":\"2014 - 2018\"},\"contact\":{\"email\":\"ankitesh4@gmail.com\",\"github\":\"https://github.com/ankitesh10\",\"linkedin\":\"https://linkedin.com/in/ankitesharora\",\"website\":\"https://ankitesharora.com\"}}"
+      },
+      "category": "task-completion"
+    },
+    "metadata": {
+      "description": "Profile task: Should retrieve education and contact details without calling the timeline tool."
+    }
+  },
+  {
+    "data": {
+      "prompt": "Hi, who are you and what can you help me with?",
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"summary\":\"Ankitesh Arora profile information\"}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"timeline\":[]}"
+        }
+      },
+      "config": {
+        "maxSteps": 5
+      }
+    },
+    "target": {
+      "originalTask": "Hi, who are you and what can you help me with?",
+      "expectedToolOrder": [],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
+      "mockToolResults": {},
+      "category": "task-completion"
+    },
+    "metadata": {
+      "description": "Negative: Greeting and bot-identity question should not call either profile tool."
+    }
+  },
+  {
+    "data": {
+      "prompt": "What is the capital of France?",
+      "mockTools": {
+        "getInformation": {
+          "description": "Get profile information about Ankitesh Arora, including skills, projects, achievements, education, availability, and role fit.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"summary\":\"Ankitesh Arora profile information\"}"
+        },
+        "getWorkTimeline": {
+          "description": "Get Ankitesh Arora's chronological work history, including employers, role dates, career progression, and key achievements.",
+          "parameters": { "question": "string" },
+          "mockReturn": "{\"timeline\":[]}"
+        }
+      },
+      "config": {
+        "maxSteps": 5
+      }
+    },
+    "target": {
+      "originalTask": "What is the capital of France?",
+      "expectedToolOrder": [],
+      "forbiddenTools": ["getInformation", "getWorkTimeline"],
+      "mockToolResults": {},
+      "category": "negative"
+    },
+    "metadata": {
+      "description": "Negative: General-knowledge question should not use either Ankitesh-specific tool."
+    }
+  }
+]
