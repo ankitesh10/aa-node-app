@@ -2,10 +2,11 @@ import { Router } from "express";
 import { pipeUIMessageStreamToResponse, safeValidateUIMessages } from "ai";
 import { botRequestSchema } from "../lib/api/bot-schema.ts";
 import { createBotStream } from "../services/bot.ts";
+import { botAbuseGate } from "../middleware/bot-rate-limit.ts";
 
 const botRouter = Router();
 
-botRouter.post("/bot", async (req, res) => {
+botRouter.post("/bot", botAbuseGate, async (req, res) => {
   const request = botRequestSchema.safeParse(req.body);
 
   if (!request.success) {
