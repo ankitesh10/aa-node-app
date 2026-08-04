@@ -45,7 +45,7 @@ export async function botAbuseGate(req, res, next) {
 
   if (exceededLimit.length > 0) {
     return res.status(429).json({
-      error: "Too many requests",
+      message: `Too many requests, limit is ${exceededLimit[0].maxHits} in an hour`,
       limit: exceededLimit[0].maxHits,
       window: exceededLimit[0].scope,
     });

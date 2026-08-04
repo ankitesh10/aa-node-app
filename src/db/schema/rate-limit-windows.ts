@@ -1,10 +1,4 @@
-import {
-  integer,
-  pgTable,
-  primaryKey,
-  timestamp,
-  varchar,
-} from "drizzle-orm/pg-core";
+import { integer, pgTable, primaryKey, varchar } from "drizzle-orm/pg-core";
 import { rateLimitEnum } from "../enums/rate-limit.enum.ts";
 
 export const rate_limit_windows = pgTable(
