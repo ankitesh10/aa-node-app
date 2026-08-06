@@ -12,8 +12,14 @@ rsync -azP --delete \
 
 ### how to re-deploy
 
+#### if dependency changed
+
 ```bash
 docker compose up -d --build app # Go in app directory first
 
 docker compose logs -f --tail=100 app  #check result
 ```
+
+#### if dependency has not changes
+
+`sudo docker compose up -d`
