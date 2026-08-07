@@ -6,6 +6,8 @@ import healthRouter from "./health.ts";
 const router = Router();
 
 router.get("/", (req, res) => {
+  console.log(req.ip);
+  console.log(req.ips);
   res.status(200).json({ message: "hello" });
 });
 

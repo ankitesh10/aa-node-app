@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node src/index.ts",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
+    "start": "NODE_ENV=production node dist/index.js",
     "db:generate": "pnpm drizzle-kit generate",
     "db:migrate": "pnpm drizzle-kit migrate",
     "db:drop": "pnpm drizzle-kit drop",
