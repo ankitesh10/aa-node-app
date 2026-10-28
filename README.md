@@ -37,6 +37,8 @@ pnpm db:migrate
 pnpm dev
 ```
 
+The development command uses IPv4 connections to avoid Neon connection timeouts on local networks with unreliable IPv6 connectivity.
+
 To add knowledge-base content:
 
 ```bash
